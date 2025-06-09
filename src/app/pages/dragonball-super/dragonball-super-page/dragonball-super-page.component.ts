@@ -1,27 +1,23 @@
 import { Component, signal } from '@angular/core';
+import { DragonballCharacterListComponent } from '../../../components/dragonball/character-list/character-list.component';
+import type { Character } from '../../../interfaces/character.interface';
 
-interface Character{
-  id: number;
-  name: string;
-  power: number;
-}
+
 
 @Component({
-  selector: 'app-dragonball-page',
-  imports: [],
-  templateUrl: './dragonball-page.component.html',
-  styleUrl: './dragonball-page.component.css'
+  selector: 'app-dragonball-super-page',
+  imports: [DragonballCharacterListComponent],
+  templateUrl: './dragonball-super-page.component.html',
+  styleUrl: './dragonball-super-page.component.css'
 })
 
-export class DragonballPageComponent {
+export class DragonballSuperPageComponent {
   name = signal('Gohan');
   power = signal(100);
 
   characters = signal<Character[]>([
     {id: 1, name: 'Goku', power: 9001},
-    //{id: 2, name: 'Vegeta', power: 8000},
-    //{id: 3, name: 'Piccolo', power: 3000},
-    //{id: 4, name: 'Yamcha', power: 500},
+    {id: 2, name: 'Vegeta', power: 8000},
   ]);
 
   addCharacter(){
